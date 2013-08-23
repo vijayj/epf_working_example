@@ -20,11 +20,41 @@
       <li>{{item}}</li>
     {{/each}}
     </ul>
+
+    {{#linkTo 'sessions.new'}} New Session {{/linkTo}}
   </script>
+
+  <script type="text/x-handlebars" data-template-name="sessions/new">
+    <form name="input">
+    {{#if hasError}}
+      <div style='border 1px solid red'>
+        <h4> Errors </h4>
+        
+        {{#each customErrors}}
+          <p>{{key}} : {{fieldErrors}}</p>
+        {{/each}}
+      </div>
+    {{/if}}
+    <p>hasError: {{hasError}}<p>
+    <ul>
+    <li>
+    UserName: {{view Ember.TextField placeholder="name"
+             valueBinding="email"}}
+    </li>
+    <li>
+    Password:{{view Ember.TextField placeholder="password"
+             valueBinding="password"}}
+    </li>
+
+    <button {{action 'login'}}>submit</button>
+    <form>
+  </script>
+
 
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0.js"></script>
   <script src="js/libs/ember-1.0.0-rc.7.js"></script>
+  <script src="js/libs/epf.js"></script>
   <script src="js/app.js"></script>
 
 </body>
