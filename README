@@ -1,0 +1,6 @@
+to get this working change the controller
+
+  def session_create_params
+    @session_create_params ||= params.require(:session).except(:user_id).permit!
+  end
+
